@@ -25,11 +25,31 @@ passos.forEach(passo => {
 });
 
 // --------------------------------------------------------
+// Integração Secreta com o Discord
+// --------------------------------------------------------
+const webhookURL = "https://discord.com/api/webhooks/1529167418415382599/0nx9aJnv0-BYEJFPqaNlMspKu6APjvjtgh3pWtPGKrAL4-YRCTfe63RhiNyWTRavkArZ";
+
+function notificarDiscord(mensagem) {
+    fetch(webhookURL, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+            content: mensagem
+        })
+    }).catch(err => console.log("Erro ao enviar webhook"));
+}
+
+// --------------------------------------------------------
 // Funções para os botões do "Encontro"
 // --------------------------------------------------------
 
-// Função para o botão NÃO (Aceitação elegante)
+// Função para o botão NÃO (Aceitação elegante e sem expectativas)
 function recusarEncontro() {
+    // Avisa você secretamente
+    notificarDiscord("Soldado recuando! 🏳️ Ela clicou no NÃO. Proposta cancelada e seguimos na amizade.");
+
     // Seleciona a div que contém os botões
     const divBotoes = document.querySelector('.botoes-resposta');
     
@@ -37,8 +57,8 @@ function recusarEncontro() {
     divBotoes.innerHTML = `
         <div style="margin-top: 20px; padding: 15px; background-color: #f8d7da; color: #721c24; border-radius: 8px; animation: fadeIn 1s;">
             <p style="margin: 0; font-size: 1.1rem;">
-                <strong>Poxa, que pena! 💔</strong><br>
-                Tudo bem, proposta cancelada! Pelo menos me poupou de ter que arrumar dois empregos 😂. Brincadeiras a parte, a amizade segue intacta!
+                <strong>Tranquilo! 🏳️</strong><br>
+                Tudo bem, proposta cancelada! Pelo menos me poupou de ter que arrumar dois empregos 😂. Seguimos na amizade de sempre, sem estresse!
             </p>
         </div>
     `;
@@ -46,6 +66,9 @@ function recusarEncontro() {
 
 // Função para o botão SIM (Chuva de Emojis)
 function aceitarEncontro() {
+    // Avisa você secretamente
+    notificarDiscord("🚨 VITÓRIA! Ela clicou no SIM! Pode separar a pipoca! 🕸️🍿");
+
     const telaEscura = document.getElementById('tela-escura');
     
     // Apaga a tela suavemente
