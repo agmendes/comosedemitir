@@ -57,8 +57,8 @@ function recusarEncontro() {
     divBotoes.innerHTML = `
         <div style="margin-top: 20px; padding: 15px; background-color: #f8d7da; color: #721c24; border-radius: 8px; animation: fadeIn 1s;">
             <p style="margin: 0; font-size: 1.1rem;">
-                <strong>Tranquilo! 🏳️</strong><br>
-                Tudo bem, proposta cancelada! Pelo menos me poupou de ter que arrumar dois empregos 😂. Seguimos na amizade de sempre, sem estresse!
+                <strong>Poxa, que pena! 💔</strong><br>
+                Tudo bem, proposta cancelada! Pelo menos me poupou de ter que arrumar dois empregos 😂. Brincadeiras a parte, a amizade segue intacta!
             </p>
         </div>
     `;
@@ -107,4 +107,4 @@ function criarEmoji() {
     setTimeout(() => {
         emojiEl.remove();
     }, duracaoQueda * 1000);
-}
+                              }
