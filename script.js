@@ -3,7 +3,7 @@ function rolarPara(seletor) {
     document.querySelector(seletor).scrollIntoView({ behavior: 'smooth' });
 }
 
-// Função para mostrar a mensagem de flerte (Formulário de Inscrição)
+// Função para mostrar a mensagem final (A Proposta Irrecusável)
 function mostrarSurpresa() {
     document.getElementById('mensagem-surpresa').style.display = 'block';
 }
@@ -28,9 +28,20 @@ passos.forEach(passo => {
 // Funções para os botões do "Encontro"
 // --------------------------------------------------------
 
-// Função para o botão NÃO (Bloqueado)
+// Função para o botão NÃO (Aceitação elegante)
 function recusarEncontro() {
-    alert("Opção indisponível! O sistema só aceita 'Sim'. Tente novamente.");
+    // Seleciona a div que contém os botões
+    const divBotoes = document.querySelector('.botoes-resposta');
+    
+    // Substitui os botões pela mensagem de aceitação suave
+    divBotoes.innerHTML = `
+        <div style="margin-top: 20px; padding: 15px; background-color: #f8d7da; color: #721c24; border-radius: 8px; animation: fadeIn 1s;">
+            <p style="margin: 0; font-size: 1.1rem;">
+                <strong>Poxa, que pena! 💔</strong><br>
+                Tudo bem, proposta cancelada! Pelo menos me poupou de ter que arrumar dois empregos 😂. Brincadeiras a parte, a amizade segue intacta!
+            </p>
+        </div>
+    `;
 }
 
 // Função para o botão SIM (Chuva de Emojis)
@@ -69,7 +80,7 @@ function criarEmoji() {
     // Joga o emoji na tela escura
     telaEscura.appendChild(emojiEl);
 
-    // Remove o emoji do código HTML depois que ele terminar de cair (para o navegador não travar com acúmulo de elementos)
+    // Remove o emoji do código HTML depois que ele terminar de cair (evita travar o navegador)
     setTimeout(() => {
         emojiEl.remove();
     }, duracaoQueda * 1000);
